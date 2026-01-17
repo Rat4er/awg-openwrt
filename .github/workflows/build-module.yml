@@ -194,10 +194,10 @@ jobs:
           
           # Copy built packages
           find "bin/" -name "amneziawg-tools_*.apk"
-          cp "$SDK_DIR/bin/targets/mediatek/mt7622/packages/kmod-amneziawg-6.12.63.1.0.20251104-r1.apk" "$REL_DIR"
-          cp "$SDK_DIR/bin/packages/aarch64_cortex-a53/base/amneziawg-tools-1.0.20250903-r1.apk" "$REL_DIR"
-          cp "$SDK_DIR/bin/packages/aarch64_cortex-a53/base/luci-proto-amneziawg-2.0.4-r1.apk" "$REL_DIR"
-          cp "$SDK_DIR/bin/packages/aarch64_cortex-a53/base/luci-i18n-amneziawg-ru-0.apk" "$REL_DIR"          
+          cp "bin/targets/mediatek/mt7622/packages/kmod-amneziawg-6.12.63.1.0.20251104-r1.apk" "$REL_DIR"
+          cp "bin/packages/aarch64_cortex-a53/base/amneziawg-tools-1.0.20250903-r1.apk" "$REL_DIR"
+          cp "bin/packages/aarch64_cortex-a53/base/luci-proto-amneziawg-2.0.4-r1.apk" "$REL_DIR"
+          cp "bin/packages/aarch64_cortex-a53/base/luci-i18n-amneziawg-ru-0.apk" "$REL_DIR"          
           
           echo "Built packages:"
           find "$REL_DIR" -name "*.apk" | head -10
