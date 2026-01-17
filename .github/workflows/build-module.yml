@@ -74,12 +74,7 @@ jobs:
     needs: generate-config
     strategy:
       matrix:
-        build_env: 
-          - tag: 25.12.0-rc2
-          - target: mediatek
-          - subtarget: mt7622
-          - vermagic: 0b4fb51646b5aba68be5166c5919febd-r1
-          - pkgarch: aarch64
+        build_env: ${{ fromJson(needs.generate-config.outputs.job-config) }}
       fail-fast: false
 
     steps:
