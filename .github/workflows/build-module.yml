@@ -200,10 +200,10 @@ jobs:
           find "bin/" -name "kmod-amneziawg_*.apk" -exec cp {} "$REL_DIR/kmod-amneziawg_${postfix}.apk" \; || echo "kmod-amneziawg package not found"
           
           echo "Built packages:"
-          ls -la "$REL_DIR"
+          find "$REL_DIR" -name "*.apk"
 
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: awgrelease/*.apk
+          files: "$REL_DIR/*.apk"
           tag_name: v${{ matrix.build_env.tag }}
