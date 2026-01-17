@@ -194,16 +194,16 @@ jobs:
           
           # Copy built packages
           find "bin/" -name "amneziawg-tools_*.apk"
-          find "bin/" -name "amneziawg-tools_*.apk" -exec cp {} "$REL_DIR/amneziawg-tools_${postfix}.apk" \; || echo "amneziawg-tools package not found"
-          find "bin/" -name "luci-proto-amneziawg_*.apk" -exec cp {} "$REL_DIR/luci-proto-amneziawg_${postfix}.apk" \; || echo "luci-proto-amneziawg package not found"
-          find "bin/" -name "luci-i18n-amneziawg-ru_*.apk" -exec cp {} "$REL_DIR/luci-i18n-amneziawg-ru_${postfix}.apk" \; || echo "luci-i18n-amneziawg-ru package not found"
-          find "bin/" -name "kmod-amneziawg_*.apk" -exec cp {} "$REL_DIR/kmod-amneziawg_${postfix}.apk" \; || echo "kmod-amneziawg package not found"
+          cp "$SDK_DIR/bin/targets/mediatek/mt7622/packages/kmod-amneziawg-6.12.63.1.0.20251104-r1.apk" "$REL_DIR"
+          cp "$SDK_DIR/bin/packages/aarch64_cortex-a53/base/amneziawg-tools-1.0.20250903-r1.apk" "$REL_DIR"
+          cp "$SDK_DIR/bin/packages/aarch64_cortex-a53/base/luci-proto-amneziawg-2.0.4-r1.apk" "$REL_DIR"
+          cp "$SDK_DIR/bin/packages/aarch64_cortex-a53/base/luci-i18n-amneziawg-ru-0.apk" "$REL_DIR"          
           
           echo "Built packages:"
-          find "$REL_DIR" -name "*.apk"
+          find "$REL_DIR" -name "*.apk" | head -10
 
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: "$REL_DIR/*.apk"
+          files: awgrelease/*.apk
           tag_name: v${{ matrix.build_env.tag }}
