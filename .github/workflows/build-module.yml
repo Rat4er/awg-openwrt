@@ -75,7 +75,7 @@ jobs:
     strategy:
       matrix:
         build_env: 
-          - tag: v25.12.0-rc2
+          - tag: 25.12.0-rc2
           - target: mediatek
           - subtarget: mt7622
           - vermagic: 0b4fb51646b5aba68be5166c5919febd-r1
